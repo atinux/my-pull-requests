@@ -20,7 +20,6 @@
     "@vueuse/nuxt": "^11.0.1",
     "feed": "^4.2.2",
     "nuxt": "^3.12.4",
-    "nuxt-og-image": "3.0.0-rc.65",
     "octokit": "^4.0.2",
     "vue": "^3.4.38",
     "vue-router": "^4.4.3"

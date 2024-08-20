@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxthub/core',
     '@vueuse/nuxt',
-    'nuxt-og-image',
   ],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
