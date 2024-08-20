@@ -17,7 +17,7 @@ export default defineCachedEventHandler(async () => {
     per_page: 50,
     page: 1,
   })
-  const prs = data.items.map(pr => ({
+  const prs = data.items.filter(pr => !(pr.state === 'closed' && !pr.pull_request?.merged_at)).map(pr => ({
     repo: pr.repository_url.split('/').slice(-2).join('/'),
     title: pr.title,
     url: pr.html_url,
