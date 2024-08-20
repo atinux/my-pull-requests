@@ -4,7 +4,7 @@ Create a website with an RSS feed of your recent GitHub pull requests across the
 
 Demo: https://prs.atinux.com
 
-[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/contributing)
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/my-pull-requests)
 
 ## Features
 
