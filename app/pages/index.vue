@@ -29,7 +29,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="mx-auto p-10 max-w-[700px]">
+  <UContainer class="p-4 sm:p-6 lg:p-8 max-w-2xl">
     <div class="flex flex-col items-center gap-2">
       <UAvatar
         :src="user.avatar"
@@ -85,5 +85,5 @@ useSeoMeta({
     <div class="flex flex-col gap-10">
       <PullRequest v-for="pr of prs" :key="pr.url" :data="pr" />
     </div>
-  </div>
+  </UContainer>
 </template>
