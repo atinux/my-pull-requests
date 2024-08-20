@@ -18,6 +18,10 @@ export default defineNuxtConfig({
     cache: true,
   },
 
+  icon: {
+    serverBundle: 'remote',
+  },
+
   // https://eslint.nuxt.com
   eslint: {
     config: {
