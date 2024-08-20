@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Contributions } from '~~/types/contributions'
+import type { Contributions } from '~~/types'
 
 const colorMode = useColorMode()
 const { data: contributions } = await useFetch<Contributions>('/api/contributions')
@@ -81,6 +81,9 @@ useSeoMeta({
       </div>
       <UDivider class="my-10 w-1/2 mx-auto animate-pulse" />
     </div>
-    <PullRequest v-for="pr of prs" :key="pr.url" :data="pr" />
+
+    <div class="flex flex-col gap-8">
+      <PullRequest v-for="pr of prs" :key="pr.url" :data="pr" />
+    </div>
   </div>
 </template>
