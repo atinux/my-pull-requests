@@ -31,6 +31,9 @@ export default defineCachedEventHandler(async () => {
     prs,
   }
 }, {
+  group: 'api',
+  name: 'contributions',
+  getKey: () => 'all',
   swr: true,
   maxAge: 60 * 5, // 5 minutes
 })
