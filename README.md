@@ -1,4 +1,4 @@
-# Share Your GitHub Contributions
+# Share your Open Source Contributions 🤍
 
 Create a website with an RSS feed of your recent GitHub pull requests across the Open Source projects you contribute to.
 
