@@ -8,7 +8,12 @@ defineProps<{
 
 <template>
   <div class="flex items-center gap-4">
-    <a :href="`https://github.com/${data.repo}`" target="_blank" relative class="size-12 shrink-0 rounded-md border border-gray-200 border-gray-800 overflow-hidden shadow-sm">
+    <a
+      :href="`https://github.com/${data.repo}`"
+      target="_blank"
+      relative
+      class="size-12 shrink-0 rounded-md border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm"
+    >
       <img :src="`https://github.com/${data.repo.split('/')[0]}.png`" :alt="data.repo" class="size-full">
     </a>
 

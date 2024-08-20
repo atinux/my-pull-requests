@@ -79,10 +79,10 @@ useSeoMeta({
           variant="link"
         />
       </div>
-      <UDivider class="my-10 w-1/2 mx-auto animate-pulse" />
+      <UDivider class="mt-6 mb-10 w-1/2 mx-auto animate-pulse" />
     </div>
 
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-10">
       <PullRequest v-for="pr of prs" :key="pr.url" :data="pr" />
     </div>
   </div>
