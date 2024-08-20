@@ -27,8 +27,8 @@ defineProps<{
         </a>
       </div>
 
-      <div class="flex flex-col shrink-0 text-right">
-        <a :href="data.url" target="_blank" class="text-gray-600 dark:text-gray-300 hover:underline">
+      <div class="flex flex-col justify-between shrink-0 text-right">
+        <a :href="data.url" target="_blank" class="hover:underline">
           #{{ data.number }}
         </a>
 
