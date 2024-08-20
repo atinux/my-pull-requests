@@ -2,7 +2,7 @@ import { Octokit } from 'octokit'
 
 export default defineCachedEventHandler(async () => {
   const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
+    auth: process.env.NUXT_GITHUB_TOKEN,
   })
   // Fetch user from token
   const userResponse = await octokit.request('GET /user')
