@@ -12,7 +12,7 @@ defineProps<{
       :href="`https://github.com/${data.repo}`"
       target="_blank"
       relative
-      class="size-12 shrink-0 rounded-md border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm"
+      :class="['size-12 shrink-0 border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm', data.type === 'Organization' ? 'rounded-lg' : 'rounded-full']"
     >
       <img :src="`https://github.com/${data.repo.split('/')[0]}.png`" :alt="data.repo" class="size-full">
     </a>
