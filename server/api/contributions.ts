@@ -19,7 +19,7 @@ export default defineCachedEventHandler(async (event) => {
       .filter(pr => !(pr.state === 'closed' && !pr.pull_request?.merged_at))
       .map(async (pr) => {
         const [owner, name] = pr.repository_url.split('/').slice(-2)
-        const repo = await fetchRepo(event, owner, name)
+        const repo = await fetchRepo(event, owner!, name!)
         console.log(repo)
 
         return {
