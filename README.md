@@ -2,6 +2,8 @@
 
 Create a website with an RSS feed of your recent GitHub pull requests across the Open Source projects you contribute to.
 
+![atinux-pull-requests](https://github.com/user-attachments/assets/cfa82cc2-51af-4fd4-9012-1f8517dd370f)
+
 Demo: https://prs.atinux.com
 
 [![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=atinux/my-pull-requests)
