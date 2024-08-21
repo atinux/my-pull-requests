@@ -34,11 +34,12 @@ useSeoMeta({
 <template>
   <UContainer class="p-4 sm:p-6 lg:p-8 lg:pt-10 max-w-3xl">
     <div class="flex flex-col items-center gap-2">
-      <UAvatar
+      <a :href="userUrl" target="_blank"><UAvatar
         :src="user.avatar"
         :alt="user.name"
-        size="lg"
+        size="xl"
       />
+      </a>
       <h1 class="text-2xl sm:text-3xl text-center">
         <a :href="userUrl" target="_blank">
           {{ user.name }}
@@ -47,7 +48,7 @@ useSeoMeta({
       </h1>
       <p class="text-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
         <NuxtLink :to="userUrl" target="_blank">
-          Discover @{{ user.username }}'s recent pull requests on GitHub.
+          @{{ user.username }}'s recent pull requests on GitHub.
         </NuxtLink>
       </p>
       <div class="flex items-center justify-center gap-1 text-gray-700 dark:text-gray-300">

@@ -65,7 +65,7 @@ You can also deploy using [Cloudflare Pages CI](https://hub.nuxt.com/docs/gettin
 
 ## Credits
 
-This project is inspiread by [Anthony Fu](https://github.com/antfu)'s [releases.antfu.me project](https://github.com/antfu/releases.antfu.me).
+This project is inspired by [Anthony Fu](https://github.com/antfu)'s [releases.antfu.me](https://github.com/antfu/releases.antfu.me) project.
 
 ## License
 
