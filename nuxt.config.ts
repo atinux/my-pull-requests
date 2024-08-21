@@ -7,19 +7,15 @@ export default defineNuxtConfig({
 
   // https://nuxt.com/modules
   modules: [
+    '@nuxthub/core',
     '@nuxt/eslint',
     '@nuxt/ui',
-    '@nuxthub/core',
     '@vueuse/nuxt',
   ],
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {
     cache: true,
-  },
-
-  icon: {
-    serverBundle: 'remote',
   },
 
   // https://eslint.nuxt.com
