@@ -1,3 +1,11 @@
+<script setup>
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+})
+</script>
+
 <template>
   <NuxtPage />
   <p class="text-center py-6 text-sm">
