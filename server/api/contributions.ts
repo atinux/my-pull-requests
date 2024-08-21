@@ -1,8 +1,10 @@
+import type { Contributions, PullRequest, User } from '~~/types/index'
+
 export default defineCachedEventHandler(async (event) => {
   const octokit = useOctokit()
   // Fetch user from token
   const userResponse = await octokit.request('GET /user')
-  const user = {
+  const user: User = {
     name: userResponse.data.name ?? userResponse.data.login,
     username: userResponse.data.login,
     avatar: userResponse.data.avatar_url,
@@ -14,31 +16,31 @@ export default defineCachedEventHandler(async (event) => {
     page: 1,
   })
 
-  const prs = await Promise.all(
-    data.items
-      .filter(pr => !(pr.state === 'closed' && !pr.pull_request?.merged_at))
-      .map(async (pr) => {
-        const [owner, name] = pr.repository_url.split('/').slice(-2)
-        const repo = await fetchRepo(event, owner!, name!)
-        console.log(repo)
+  // Filter out closed PRs that are not merged
+  const filteredPrs = data.items.filter(pr => !(pr.state === 'closed' && !pr.pull_request?.merged_at))
 
-        return {
-          repo: `${owner}/${name}`,
-          title: pr.title,
-          url: pr.html_url,
-          created_at: pr.created_at,
-          state: pr.pull_request?.merged_at ? 'merged' : pr.state,
-          number: pr.number,
-          type: repo.owner.type, // Add type information (User or Organization)
-          stars: repo.stargazers_count,
-        }
-      }),
-  )
+  const prs: PullRequest[] = []
+  // For each PR, fetch the repository details
+  for (const pr of filteredPrs) {
+    const [owner, name] = pr.repository_url.split('/').slice(-2)
+    const repo = await fetchRepo(event, owner!, name!)
+
+    prs.push({
+      repo: `${owner}/${name}`,
+      title: pr.title,
+      url: pr.html_url,
+      created_at: pr.created_at,
+      state: pr.pull_request?.merged_at ? 'merged' : pr.state as 'open' | 'closed',
+      number: pr.number,
+      type: repo.owner.type, // Add type information (User or Organization)
+      stars: repo.stargazers_count,
+    })
+  }
 
   return {
     user,
     prs,
-  }
+  } as Contributions
 }, {
   group: 'api',
   name: 'contributions',

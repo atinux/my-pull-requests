@@ -15,6 +15,7 @@ export function useOctokit() {
 // Read more about caching functions https://hub.nuxt.com/docs/features/cache#server-functions-caching
 export const fetchRepo = defineCachedFunction(async (event: H3Event, owner: string, name: string) => {
   // Fetch repository details to get owner type
+  console.log(`Fetching repository details for ${owner}/${name}`)
   const { data } = await useOctokit().request('GET /repos/{owner}/{name}', {
     owner,
     name,
@@ -22,7 +23,7 @@ export const fetchRepo = defineCachedFunction(async (event: H3Event, owner: stri
 
   return data
 }, {
-  maxAge: 60 * 5, // 5 minutes
+  maxAge: 60 * 10, // 10 minutes
   swr: true,
   group: 'functions',
   name: 'getRepoDetails',
