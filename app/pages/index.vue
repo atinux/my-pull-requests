@@ -86,7 +86,7 @@ useSeoMeta({
       <UDivider class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto animate-pulse" />
     </div>
 
-    <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-6 sm:gap-10">
       <PullRequest v-for="pr of prs" :key="pr.url" :data="pr" />
     </div>
   </UContainer>
