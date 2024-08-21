@@ -1,9 +1,5 @@
-import { Octokit } from 'octokit'
-
-export default defineCachedEventHandler(async () => {
-  const octokit = new Octokit({
-    auth: process.env.NUXT_GITHUB_TOKEN,
-  })
+export default defineCachedEventHandler(async (event) => {
+  const octokit = useOctokit()
   // Fetch user from token
   const userResponse = await octokit.request('GET /user')
   const user = {
@@ -17,14 +13,27 @@ export default defineCachedEventHandler(async () => {
     per_page: 50,
     page: 1,
   })
-  const prs = data.items.filter(pr => !(pr.state === 'closed' && !pr.pull_request?.merged_at)).map(pr => ({
-    repo: pr.repository_url.split('/').slice(-2).join('/'),
-    title: pr.title,
-    url: pr.html_url,
-    created_at: pr.created_at,
-    state: pr.pull_request?.merged_at ? 'merged' : pr.state,
-    number: pr.number,
-  }))
+
+  const prs = await Promise.all(
+    data.items
+      .filter(pr => !(pr.state === 'closed' && !pr.pull_request?.merged_at))
+      .map(async (pr) => {
+        const [owner, name] = pr.repository_url.split('/').slice(-2)
+        const repo = await fetchRepo(event, owner!, name!)
+        console.log(repo)
+
+        return {
+          repo: `${owner}/${name}`,
+          title: pr.title,
+          url: pr.html_url,
+          created_at: pr.created_at,
+          state: pr.pull_request?.merged_at ? 'merged' : pr.state,
+          number: pr.number,
+          type: repo.owner.type, // Add type information (User or Organization)
+          stars: repo.stargazers_count,
+        }
+      }),
+  )
 
   return {
     user,

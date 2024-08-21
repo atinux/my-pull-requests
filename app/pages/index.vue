@@ -29,7 +29,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UContainer class="p-4 sm:p-6 lg:p-8 max-w-2xl">
+  <UContainer class="p-4 sm:p-6 lg:p-8 lg:pt-10 max-w-3xl">
     <div class="flex flex-col items-center gap-2">
       <UAvatar
         :src="user.avatar"
@@ -79,7 +79,7 @@ useSeoMeta({
           variant="link"
         />
       </div>
-      <UDivider class="mt-6 mb-10 w-1/2 mx-auto animate-pulse" />
+      <UDivider class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto animate-pulse" />
     </div>
 
     <div class="flex flex-col gap-10">

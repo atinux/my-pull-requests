@@ -11,5 +11,7 @@ export interface Contributions {
     created_at: string
     state: 'merged' | 'open' | 'closed'
     number: string
+    type: 'User' | 'Organization'
+    stars: number
   }[]
 }
