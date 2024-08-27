@@ -9,7 +9,7 @@ export interface PullRequest {
   title: string
   url: string
   created_at: string
-  state: 'merged' | 'open' | 'closed'
+  state: 'merged' | 'draft' | 'open' | 'closed'
   number: number
   type: 'User' | 'Organization'
   stars: number

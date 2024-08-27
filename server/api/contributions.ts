@@ -30,7 +30,7 @@ export default defineCachedEventHandler(async (event) => {
       title: pr.title,
       url: pr.html_url,
       created_at: pr.created_at,
-      state: pr.pull_request?.merged_at ? 'merged' : pr.state as 'open' | 'closed',
+      state: pr.pull_request?.merged_at ? 'merged' : pr.draft ? 'draft' : pr.state as 'open' | 'closed',
       number: pr.number,
       type: repo.owner.type, // Add type information (User or Organization)
       stars: repo.stargazers_count,

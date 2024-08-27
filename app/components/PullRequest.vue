@@ -31,6 +31,7 @@ function formatStars(stars: number) {
             name="i-ph-git-pull-request-duotone"
             :class="{
               'text-green-500 dark:text-green-400': data.state === 'open',
+              'text-gray-500 dark:text-gray-400': data.state === 'draft',
               'text-purple-500 dark:text-purple-400': data.state === 'merged',
             }"
             class="size-4 sm:size-5 shrink-0"
