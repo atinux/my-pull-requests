@@ -19,6 +19,7 @@ useHead({
       Create my own contributions page
     </UButton>
   </p>
+  <ScrollToTop />
 </template>
 
 <style lang="postcss">
