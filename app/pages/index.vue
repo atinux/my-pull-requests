@@ -18,14 +18,15 @@ useHead({
     { rel: 'alternate', type: 'application/rss+xml', title: `${user.name}'s recent pull requests`, href: '/feed.xml' },
   ],
 })
+const url = useRequestURL()
 useSeoMeta({
   title: `${user.name} is Contributing`,
   description: `Discover ${user.name} recent pull requests on GitHub.`,
   ogTitle: `${user.name} is Contributing`,
   ogDescription: `Discover ${user.name} recent pull requests on GitHub.`,
   twitterCard: 'summary_large_image',
-  ogImage: '/og.png',
-  twitterImage: '/og.png',
+  ogImage: `${url.origin}/og.png`,
+  twitterImage: `${url.origin}/og.png`,
 })
 </script>
 
