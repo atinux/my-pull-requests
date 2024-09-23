@@ -10,7 +10,7 @@ useHead({
   <NuxtPage />
   <p class="text-center py-6 pb-10 text-sm">
     <UButton
-      to="https://github.com/aksharahegde/my-pull-requests"
+      to="https://github.com/atinux/my-pull-requests"
       target="_blank"
       color="black"
       size="xs"
