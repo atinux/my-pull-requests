@@ -2,11 +2,11 @@
 
 Create a website with an RSS feed of your recent GitHub pull requests across the Open Source projects you contribute to.
 
-![aksharahegde-pull-requests](https://github.com/aksharahegde/user-attachment/blob/main/pr-demo.png?raw=true)
+![atinux-pull-requests](https://github.com/user-attachments/assets/cfa82cc2-51af-4fd4-9012-1f8517dd370f)
 
-Demo: https://prs.aksharahegde.xyz
+Demo: https://prs.atinux.com
 
-[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?template=aksharahegde/my-pull-requests)
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?template=my-pull-requests)
 
 ## Features
 
@@ -65,7 +65,7 @@ You can also deploy using [Cloudflare Pages CI](https://hub.nuxt.com/docs/gettin
 
 ## Credits
 
-- Forked from [atinux/my-pull-requests](https://github.com/atinux/my-pull-requests)
+This project is inspired by [Anthony Fu](https://github.com/antfu)'s [releases.antfu.me](https://github.com/antfu/releases.antfu.me) project.
 
 ## License
 
