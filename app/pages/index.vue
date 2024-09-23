@@ -18,17 +18,16 @@ useHead({
     { rel: 'alternate', type: 'application/rss+xml', title: `${user.name}'s recent pull requests`, href: '/feed.xml' },
   ],
 })
+const url = useRequestURL()
 useSeoMeta({
   title: `${user.name} is Contributing`,
   description: `Discover ${user.name} recent pull requests on GitHub.`,
   ogTitle: `${user.name} is Contributing`,
   ogDescription: `Discover ${user.name} recent pull requests on GitHub.`,
   twitterCard: 'summary_large_image',
-  // Feel free to change this image with your own once deployed to NuxtHub
-  ogImage: 'https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Bycy5hdGludXguY29tIiwiaWF0IjoxNzI0MTYwMTkxfQ.yYRD-Gs6EyYQSfg27fZVx1Kle7nq7QBSciDui-mbnnU.jpg?theme=light',
-  twitterImage: 'https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Bycy5hdGludXguY29tIiwiaWF0IjoxNzI0MTYwMTkxfQ.yYRD-Gs6EyYQSfg27fZVx1Kle7nq7QBSciDui-mbnnU.jpg?theme=light',
+  ogImage: `${url.origin}/og.png`,
+  twitterImage: `${url.origin}/og.png`,
 })
-// TODO: OG Image
 </script>
 
 <template>
