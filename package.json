@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@9.12.1",
+  "packageManager": "pnpm@9.12.3",
   "scripts": {
     "build": "nuxi build",
     "dev": "nuxi dev",
@@ -15,19 +15,19 @@
   "dependencies": {
     "@iconify-json/ph": "^1.2.1",
     "@nuxt/ui": "^2.18.7",
-    "@nuxthub/core": "^0.7.31",
-    "@vueuse/core": "^11.1.0",
-    "@vueuse/nuxt": "^11.1.0",
+    "@nuxthub/core": "^0.8.5",
+    "@vueuse/core": "^11.2.0",
+    "@vueuse/nuxt": "^11.2.0",
     "feed": "^4.2.2",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.14.0",
     "octokit": "^4.0.2",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.6.0",
-    "eslint": "^9.12.0",
-    "vue-tsc": "^2.1.6",
-    "wrangler": "^3.80.4"
+    "@nuxt/eslint": "^0.6.1",
+    "eslint": "^9.14.0",
+    "vue-tsc": "^2.1.10",
+    "wrangler": "^3.84.1"
   }
 }
