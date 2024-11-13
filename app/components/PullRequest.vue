@@ -28,7 +28,7 @@ function formatStars(stars: number) {
       <div class="flex flex-col min-w-0 gap-0.5 sm:gap-1">
         <a :href="data.url" target="_blank" class="text-sm sm:text-base flex items-center gap-0.5 sm:gap-1 hover:underline text-gray-900 dark:text-white">
           <UIcon
-            name="i-ph-git-pull-request-duotone"
+            name="i-lucide-git-pull-request"
             :class="{
               'text-green-500 dark:text-green-400': data.state === 'open',
               'text-gray-500 dark:text-gray-400': data.state === 'draft',
@@ -46,9 +46,9 @@ function formatStars(stars: number) {
             <span class="opacity-50">/</span>
             <span class="truncate">{{ data.repo.split('/')[1] }}</span>
           </a>
-          <a :href="`https://github.com/${data.repo}`" target="_blank" class="items-center hidden sm:inline-flex gap-0.5 hover:text-black dark:hover:text-white truncate">
-            <UIcon name="i-ph-star" class="size-3 shrink-0" />
-            <span class="text-xs text-gray-500 dark:text-gray-400">{{ formatStars(data.stars) }}</span>
+          <a :href="`https://github.com/${data.repo}`" target="_blank" class="items-center hidden sm:inline-flex gap-0.5 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white truncate">
+            <UIcon name="i-lucide-star" class="size-3 shrink-0" />
+            <span class="text-xs">{{ formatStars(data.stars) }}</span>
           </a>
         </div>
       </div>

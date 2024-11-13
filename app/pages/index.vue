@@ -54,7 +54,7 @@ useSeoMeta({
         <ClientOnly>
           <UButton
             :aria-label="`${user.name}'s GitHub profile`"
-            :icon="colorMode.value === 'dark' ? 'i-ph-moon-stars-duotone' : 'i-ph-sun-duotone'"
+            :icon="colorMode.value === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
             color="gray"
             variant="link"
             @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
@@ -68,7 +68,7 @@ useSeoMeta({
           external
           target="_blank"
           :aria-label="`${user.name}'s GitHub profile`"
-          icon="i-ph-github-logo-duotone"
+          icon="i-lucide-github"
           color="gray"
           variant="link"
         />
@@ -77,7 +77,7 @@ useSeoMeta({
           external
           target="_blank"
           aria-label="RSS Feed"
-          icon="i-ph-rss-simple-duotone"
+          icon="i-lucide-rss"
           color="gray"
           variant="link"
         />
