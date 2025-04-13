@@ -50,6 +50,9 @@ useSeoMeta({
           @{{ user.username }}'s recent pull requests on GitHub.
         </NuxtLink>
       </p>
+      <p class="text-center text-xs text-gray-400 dark:text-gray-500">
+        Only public contributions are displayed here.
+      </p>
       <div class="flex items-center justify-center gap-1 text-gray-700 dark:text-gray-300">
         <ClientOnly>
           <UButton
