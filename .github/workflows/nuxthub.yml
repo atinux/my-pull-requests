@@ -37,4 +37,4 @@ jobs:
         uses: nuxt-hub/action@v1
         id: deploy
         with:
-          project-key: my-pull-request-w037
+          project-key: my-pull-request-3rmi
