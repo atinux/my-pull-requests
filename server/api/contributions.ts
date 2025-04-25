@@ -17,6 +17,7 @@ export default defineCachedEventHandler(async (event) => {
     q: `type:pr+author:"${user.username}"`,
     per_page: 50,
     page: 1,
+    advanced_search: 'true',
   })
 
   // Filter out closed PRs that are not merged
