@@ -45,17 +45,17 @@ useSeoMeta({
         </a>
         is <span class="animate-pulse">Contributing...</span>
       </h1>
-      <p class="text-center text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
+      <p class="text-center text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300">
         <NuxtLink :to="userUrl" target="_blank">
           @{{ user.username }}'s recent pull requests on GitHub.
         </NuxtLink>
       </p>
-      <div class="flex items-center justify-center gap-1 text-gray-700 dark:text-gray-300">
+      <div class="flex items-center justify-center gap-1 text-neutral-700 dark:text-neutral-300">
         <ClientOnly>
           <UButton
             :aria-label="`${user.name}'s GitHub profile`"
             :icon="colorMode.value === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
-            color="gray"
+            color="neutral"
             variant="link"
             @click="colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'"
           />
@@ -69,7 +69,7 @@ useSeoMeta({
           target="_blank"
           :aria-label="`${user.name}'s GitHub profile`"
           icon="i-lucide-github"
-          color="gray"
+          color="neutral"
           variant="link"
         />
         <UButton
@@ -78,11 +78,11 @@ useSeoMeta({
           target="_blank"
           aria-label="RSS Feed"
           icon="i-lucide-rss"
-          color="gray"
+          color="neutral"
           variant="link"
         />
       </div>
-      <UDivider class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto animate-pulse" />
+      <USeparator class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto animate-pulse" />
     </div>
 
     <div class="flex flex-col gap-6 sm:gap-10">

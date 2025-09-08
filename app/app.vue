@@ -12,8 +12,9 @@ useHead({
     <UButton
       to="https://github.com/atinux/my-pull-requests"
       target="_blank"
-      color="black"
-      size="xs"
+      color="neutral"
+      variant="subtle"
+      size="sm"
       icon="i-simple-icons-github"
     >
       Create my own contributions page
@@ -24,6 +25,6 @@ useHead({
 
 <style lang="postcss">
 body {
-  @apply min-h-screen bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 font-sans;
+  @apply min-h-screen bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-200 font-sans;
 }
 </style>

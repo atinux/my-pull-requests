@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  css: ['~/assets/css/main.css'],
 
   // https://nuxt.com/modules
   modules: [
-    '@nuxthub/core',
     '@nuxt/eslint',
     '@nuxt/ui',
     '@vueuse/nuxt',
@@ -14,11 +14,15 @@ export default defineNuxtConfig({
 
   // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
   future: { compatibilityVersion: 4 },
-  compatibilityDate: '2024-07-30',
+  compatibilityDate: '2025-09-08',
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
-  hub: {
-    cache: true,
+  nitro: {
+    storage: {
+      cache: {
+        driver: 'vercel-runtime-cache',
+      }
+    }
   },
 
   // https://eslint.nuxt.com
