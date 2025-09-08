@@ -18,7 +18,7 @@
     "@vueuse/core": "^13.9.0",
     "@vueuse/nuxt": "^13.9.0",
     "feed": "^5.1.0",
-    "nuxt": "^4.1.1",
+    "nuxt": "4.1.0",
     "octokit": "^5.0.3",
     "tailwindcss": "^4.1.13",
     "vue": "^3.5.21",
