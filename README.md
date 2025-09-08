@@ -6,14 +6,13 @@ Create a website with an RSS feed of your recent GitHub pull requests across the
 
 Demo: https://prs.atinux.com
 
-[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?template=my-pull-requests)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fatinux%2Fmy-pull-requests)
 
 ## Features
 
 - List the 50 most recent pull requests you've contributed to.
 - RSS feed
 - Only add your GitHub token to get started
-- One click deploy on 275+ locations for free
 
 ## Setup
 
@@ -50,18 +49,6 @@ Build the application for production:
 ```bash
 pnpm build
 ```
-
-## Deploy
-
-Deploy the application on the Edge with [NuxtHub](https://hub.nuxt.com) on your Cloudflare account:
-
-```bash
-npx nuxthub deploy
-```
-
-Then checkout your server cache, analaytics and more in the [NuxtHub Admin](https://admin.hub.nuxt.com).
-
-You can also deploy using [Cloudflare Pages CI](https://hub.nuxt.com/docs/getting-started/deploy#cloudflare-pages-ci).
 
 ## Credits
 
