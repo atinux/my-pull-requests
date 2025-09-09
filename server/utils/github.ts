@@ -12,8 +12,13 @@ export function useOctokit() {
   return _octokit
 }
 
+let _repoCache: Record<string, any> = new Map()
+
 // Read more about caching functions https://hub.nuxt.com/docs/features/cache#server-functions-caching
-export const fetchRepo = defineCachedFunction(async (event: H3Event, owner: string, name: string) => {
+export async function fetchRepo (owner: string, name: string) {
+  if (_repoCache.has(`${owner}/${name}`)) {
+    return _repoCache.get(`${owner}/${name}`)
+  }
   // Fetch repository details to get owner type
   console.log(`Fetching repository details for ${owner}/${name}`)
   const { data } = await useOctokit().request('GET /repos/{owner}/{name}', {
@@ -21,11 +26,6 @@ export const fetchRepo = defineCachedFunction(async (event: H3Event, owner: stri
     name,
   })
 
+  _repoCache.set(`${owner}/${name}`, data)
   return data
-}, {
-  maxAge: 60 * 10, // 10 minutes
-  swr: true,
-  group: 'functions',
-  name: 'getRepoDetails',
-  getKey: (_event: H3Event, owner: string, repo: string) => `${owner}/${repo}`,
-})
+}
