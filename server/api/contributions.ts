@@ -28,6 +28,7 @@ export default defineCachedEventHandler(async (event) => {
     const [owner, name] = pr.repository_url.split('/').slice(-2)
     const repo = await fetchRepo(owner!, name!)
 
+    console.log('Repo fetched', repo)
     prs.push({
       repo: `${owner}/${name}`,
       title: pr.title,
@@ -40,6 +41,7 @@ export default defineCachedEventHandler(async (event) => {
     })
   }
 
+  console.log('Contributions fetched')
   return {
     user,
     prs,
