@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   ],
 
   routeRules: {
-    '/api/contributions': {
+    '/api/**': {
       isr: 60 * 5, // 5 minutes
     },
   },

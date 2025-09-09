@@ -1,7 +1,6 @@
 import { Feed } from 'feed'
 import { joinURL } from 'ufo'
 import { getRequestURL } from 'h3'
-import type { Contributions } from '~~/types/index'
 
 export default defineEventHandler(async (event) => {
   const domain = getRequestURL(event).origin
