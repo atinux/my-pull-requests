@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Contributions } from '~~/types'
+import type { Contributions } from '~~/shared/types'
 
 const colorMode = useColorMode()
 const { data: contributions } = await useFetch<Contributions>('/api/contributions')
