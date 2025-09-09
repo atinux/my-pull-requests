@@ -1,10 +1,10 @@
-export interface User {
+export type User = {
   username: string
   name: string
   avatar: string
 }
 
-export interface PullRequest {
+export type PullRequest = {
   repo: string
   title: string
   url: string
@@ -15,7 +15,7 @@ export interface PullRequest {
   stars: number
 }
 
-export interface Contributions {
+export type Contributions = {
   user: User
   prs: PullRequest[]
 }

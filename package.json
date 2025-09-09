@@ -3,12 +3,9 @@
   "private": true,
   "packageManager": "pnpm@10.15.1",
   "scripts": {
-    "build": "nuxi build",
     "dev": "nuxi dev",
-    "generate": "nuxi generate",
-    "prepare": "nuxi prepare",
-    "start": "node .output/server/index.mjs",
-    "start:generate": "npx serve .output/public",
+    "build": "nuxi build",
+    "postinstall": "nuxi prepare",
     "lint": "eslint .",
     "typecheck": "vue-tsc --noEmit"
   },
@@ -28,16 +25,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.9.0",
     "eslint": "^9.35.0",
-    "vue-tsc": "^3.0.6",
-    "wrangler": "^4.34.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp",
-      "unrs-resolver",
-      "vue-demi",
-      "workerd"
-    ]
+    "typescript": "^5.9.2",
+    "vue-tsc": "^3.0.6"
   }
 }

@@ -1,5 +1,4 @@
-export default defineCachedEventHandler(async (event) => {
-  console.log('Fetching contributions')
+export default defineCachedEventHandler(async () => {
   const octokit = useOctokit()
   // Fetch user from token
   const userResponse = await octokit.request('GET /user')
