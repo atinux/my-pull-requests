@@ -1,4 +1,4 @@
-export default defineCachedEventHandler(async (event) => {
+export default defineEventHandler(async (event) => {
   console.log('Fetching contributions')
   const octokit = useOctokit()
   // Fetch user from token
@@ -28,7 +28,6 @@ export default defineCachedEventHandler(async (event) => {
     const [owner, name] = pr.repository_url.split('/').slice(-2)
     const repo = await fetchRepo(owner!, name!)
 
-    console.log('Repo fetched', repo)
     prs.push({
       repo: `${owner}/${name}`,
       title: pr.title,
@@ -41,14 +40,8 @@ export default defineCachedEventHandler(async (event) => {
     })
   }
 
-  console.log('Contributions fetched')
   return {
     user,
     prs,
   } as Contributions
-}, {
-  group: 'api',
-  name: 'contributions',
-  getKey: () => 'all',
-  maxAge: 60 * 5, // 5 minutes
 })

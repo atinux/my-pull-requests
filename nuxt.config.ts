@@ -9,21 +9,18 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
+  routeRules: {
+    '/api/contributions': {
+      isr: 60 * 5, // 5 minutes
+    },
+  },
+
   // https://devtools.nuxt.com
   devtools: { enabled: true },
 
   // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
   future: { compatibilityVersion: 4 },
   compatibilityDate: '2025-09-08',
-
-  // https://hub.nuxt.com/docs/getting-started/installation#options
-  nitro: {
-    storage: {
-      cache: {
-        driver: 'vercel-runtime-cache',
-      }
-    }
-  },
 
   // https://eslint.nuxt.com
   eslint: {

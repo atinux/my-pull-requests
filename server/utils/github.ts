@@ -12,12 +12,13 @@ export function useOctokit() {
   return _octokit
 }
 
-let _repoCache: Record<string, any> = new Map()
+// In memory cache as this is called internally in /api/contributions
+let RepoCache: Record<string, any> = new Map()
 
 // Read more about caching functions https://hub.nuxt.com/docs/features/cache#server-functions-caching
 export async function fetchRepo (owner: string, name: string) {
-  if (_repoCache.has(`${owner}/${name}`)) {
-    return _repoCache.get(`${owner}/${name}`)
+  if (RepoCache.has(`${owner}/${name}`)) {
+    return RepoCache.get(`${owner}/${name}`)
   }
   // Fetch repository details to get owner type
   console.log(`Fetching repository details for ${owner}/${name}`)
@@ -26,6 +27,6 @@ export async function fetchRepo (owner: string, name: string) {
     name,
   })
 
-  _repoCache.set(`${owner}/${name}`, data)
+  RepoCache.set(`${owner}/${name}`, data)
   return data
 }
