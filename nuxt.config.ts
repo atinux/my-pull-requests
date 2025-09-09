@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   // https://nuxt.com/modules
-  modules: ['@nuxt/eslint', '@nuxt/ui', '@vueuse/nuxt', '@nuxthub/core'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@vueuse/nuxt'],
 
   // https://devtools.nuxt.com
   devtools: { enabled: true },
