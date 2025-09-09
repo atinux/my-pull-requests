@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import type { Contributions } from '~~/types'
-
 const colorMode = useColorMode()
-const { data: contributions } = await useFetch<Contributions>('/api/contributions')
+const { data: contributions } = await useFetch <Contributions> ('/api/contributions')
 
 if (!contributions.value) {
   throw createError('Could not load User activity')

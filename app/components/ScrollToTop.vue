@@ -17,7 +17,7 @@ const { y: scroll } = useWindowScroll()
     variant="ghost"
     class="z-100 fixed bottom-3 right-3 h-10 w-10 flex justify-center items-center rounded-full transition duration-300 text-neutral-600 hover:bg-[#8882] hover:opacity-100 dark:text-white dark:hover:bg-[#8883] print:hidden"
     icon="i-lucide-arrow-up"
-    :class="scroll > 200 ? 'opacity-40' : '!opacity-0 pointer-events-none'"
+    :class="scroll > 200 ? 'opacity-40' : 'opacity-0! pointer-events-none'"
     @click="toTop()"
   />
 </template>

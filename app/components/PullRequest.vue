@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import type { Contributions } from '~~/types'
-
 defineProps<{
-  data: Contributions['prs'][number]
+  data: PullRequest
 }>()
 
 function formatStars(stars: number) {
@@ -12,7 +10,7 @@ function formatStars(stars: number) {
   }).format(stars)
 }
 
-const stateIcons: Record<Contributions['prs'][number]['state'], string> = {
+const stateIcons: Record<PullRequest['state'], string> = {
   open: 'i-lucide-git-pull-request-arrow',
   draft: 'i-lucide-git-pull-request-draft',
   merged: 'i-lucide-git-merge',
