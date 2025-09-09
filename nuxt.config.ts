@@ -9,12 +9,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
   ],
 
-  routeRules: {
-    '/api/**': {
-      isr: 60 * 5, // 5 minutes
-    },
-  },
-
   // https://devtools.nuxt.com
   devtools: { enabled: true },
 

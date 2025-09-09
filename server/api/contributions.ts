@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   console.log('Fetching contributions')
   const octokit = useOctokit()
   // Fetch user from token
@@ -44,4 +44,7 @@ export default defineEventHandler(async (event) => {
     user,
     prs,
   } as Contributions
+}, {
+  swr: true,
+  maxAge: 60 * 5, // 5 minutes
 })
