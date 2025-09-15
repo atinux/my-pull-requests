@@ -1,4 +1,4 @@
-export default defineCachedEventHandler(async () => {
+export default defineEventHandler(async () => {
   const octokit = useOctokit()
   // Fetch user from token
   const userResponse = await octokit.request('GET /user')
@@ -43,7 +43,4 @@ export default defineCachedEventHandler(async () => {
     user,
     prs,
   } as Contributions
-}, {
-  swr: true,
-  maxAge: 60 * 5, // 5 minutes
 })
