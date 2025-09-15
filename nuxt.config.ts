@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
-  compatibilityDate: '2025-09-08',
+  compatibilityDate: '2025-01-01',
 
   $production: {
     routeRules: {
