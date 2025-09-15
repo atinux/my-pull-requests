@@ -6,3 +6,5 @@ dist
 .env
 .idea/
 .data
+.DS_Store
+.vercel
