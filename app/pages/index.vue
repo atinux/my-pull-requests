@@ -1,12 +1,17 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
-const { data: contributions } = await useFetch <Contributions> ('/api/contributions')
+const [{ data: contributions }, { data: issuesData }] = await Promise.all([
+  useFetch<Contributions>('/api/contributions'),
+  useFetch<Issues>('/api/issues'),
+])
 
 if (!contributions.value) {
   throw createError('Could not load User activity')
 }
 
 const { user, prs } = contributions.value
+const issues = issuesData.value?.issues ?? []
+const activeTab = ref('prs')
 const userUrl = `https://github.com/${user.username}`
 
 useHead({
@@ -19,9 +24,9 @@ useHead({
 const url = useRequestURL()
 useSeoMeta({
   title: `${user.name} is Contributing`,
-  description: `Discover ${user.name} recent pull requests on GitHub.`,
+  description: `Discover ${user.name} recent pull requests and issues on GitHub.`,
   ogTitle: `${user.name} is Contributing`,
-  ogDescription: `Discover ${user.name} recent pull requests on GitHub.`,
+  ogDescription: `Discover ${user.name} recent pull requests and issues on GitHub.`,
   twitterCard: 'summary_large_image',
   ogImage: `${url.origin}/og.png`,
   twitterImage: `${url.origin}/og.png`,
@@ -70,9 +75,9 @@ const items = computed(() => [
   }],
 ])
 
-const orderedPrs = computed(() => {
-  const sortedPrs = [...prs]
-  sortedPrs.sort((a, b) => {
+const orderedItems = computed(() => {
+  const items = activeTab.value === 'prs' ? [...prs] : [...issues]
+  items.sort((a, b) => {
     if (orderKey.value === 'star') {
       return order.value === 'asc' ? a.stars - b.stars : b.stars - a.stars
     }
@@ -82,7 +87,7 @@ const orderedPrs = computed(() => {
       return order.value === 'asc' ? dateA - dateB : dateB - dateA
     }
   })
-  return sortedPrs
+  return items
 })
 </script>
 
@@ -103,7 +108,7 @@ const orderedPrs = computed(() => {
       </h1>
       <p class="text-center text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300">
         <NuxtLink :to="userUrl" target="_blank">
-          @{{ user.username }}'s recent pull requests on GitHub.
+          @{{ user.username }}'s recent contributions on GitHub.
         </NuxtLink>
       </p>
       <div class="flex items-center justify-center gap-1 text-neutral-700 dark:text-neutral-300">
@@ -141,6 +146,15 @@ const orderedPrs = computed(() => {
       <USeparator class="mt-2 sm:mt-6 mb-6 sm:mb-10 w-1/2 mx-auto animate-pulse" />
     </div>
 
+    <UTabs
+      v-model="activeTab"
+      :items="[
+        { label: 'Pull Requests', value: 'prs', icon: 'i-lucide-git-pull-request' },
+        { label: 'Issues', value: 'issues', icon: 'i-lucide-circle-dot' },
+      ]"
+      class="mb-6"
+    />
+
     <div class="relative">
       <div class="flex justify-end absolute -top-10 lg:-top-12 right-0">
         <UDropdownMenu
@@ -165,7 +179,12 @@ const orderedPrs = computed(() => {
         </UDropdownMenu>
       </div>
       <div class="flex flex-col gap-6 mt-5 sm:gap-10">
-        <PullRequest v-for="pr of orderedPrs" :key="pr.url" :data="pr" />
+        <template v-if="activeTab === 'prs'">
+          <PullRequest v-for="pr of orderedItems" :key="pr.url" :data="pr as PullRequest" />
+        </template>
+        <template v-else>
+          <IssueItem v-for="issue of orderedItems" :key="issue.url" :data="issue as Issue" />
+        </template>
       </div>
     </div>
   </UContainer>

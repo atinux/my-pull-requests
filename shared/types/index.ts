@@ -15,7 +15,23 @@ export type PullRequest = {
   stars: number
 }
 
+export type Issue = {
+  repo: string
+  title: string
+  url: string
+  created_at: string
+  state: 'open' | 'closed'
+  number: number
+  type: 'User' | 'Organization'
+  stars: number
+}
+
 export type Contributions = {
   user: User
   prs: PullRequest[]
+}
+
+export type Issues = {
+  user: User
+  issues: Issue[]
 }

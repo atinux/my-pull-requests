@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  nitro: { preset: 'cloudflare-module' },
 
   // https://nuxt.com/modules
   modules: ['@nuxt/eslint', '@nuxt/ui', '@vueuse/nuxt'],
@@ -9,6 +8,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/': { isr: 60 * 5 },
       '/api/contributions': { isr: 60 * 5 },
+      '/api/issues': { isr: 60 * 5 },
       '/feed.xml': { isr: 60 * 5 },
     },
   },
@@ -19,6 +19,7 @@ export default defineNuxtConfig({
 
   // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
   compatibilityDate: '2025-01-01',
+  nitro: { preset: 'cloudflare-module' },
 
   // https://eslint.nuxt.com
   eslint: {
