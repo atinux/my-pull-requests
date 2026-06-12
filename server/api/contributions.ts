@@ -7,7 +7,7 @@ export default defineEventHandler(async () => {
     username: userResponse.data.login,
     avatar: userResponse.data.avatar_url,
   }
-  const hidePrivateRepos = process.env.NUXT_HIDE_PRIVATE_REPOS === 'true'
+  const hidePrivateRepos = process.env.HIDE_PRIVATE_REPOS === 'true'
   // Fetch pull requests from user
   const { data } = await octokit.request('GET /search/issues', {
     // To exclude the pull requests to your repositories
