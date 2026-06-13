@@ -109,7 +109,7 @@ const orderedPrs = computed(() => {
       <div class="flex items-center justify-center gap-1 text-neutral-700 dark:text-neutral-300">
         <ClientOnly>
           <UButton
-            :aria-label="`${user.name}'s GitHub profile`"
+            :aria-label="colorMode.value === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
             :icon="colorMode.value === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun'"
             color="neutral"
             variant="link"
