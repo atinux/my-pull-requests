@@ -44,14 +44,14 @@ If you want to hide private repos:
 HIDE_PRIVATE_REPOS=<BOOLEAN>
 ```
 
-If you want to exclude specifics orgs:
+If you want to exclude specific orgs:
 ```bash
-EXCLUDE_ORGS=<COMMA_SEPERATED_LIST>
+EXCLUDE_ORGS=<COMMA_SEPARATED_LIST>
 ```
 
-If you want to exclude specifics repos:
+If you want to exclude specific repos:
 ```bash
-EXCLUDE_REPOS=<COMMA_SEPERATED_LIST>
+EXCLUDE_REPOS=<COMMA_SEPARATED_LIST>
 ```
 
 ## Development Server
