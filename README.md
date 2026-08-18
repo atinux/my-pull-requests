@@ -51,7 +51,7 @@ EXCLUDE_ORGS=<COMMA_SEPERATED_LIST>
 
 If you want to exclude specifics repos:
 ```bash
-EXCLUDE_ORGS=<COMMA_SEPERATED_LIST>
+EXCLUDE_REPOS=<COMMA_SEPERATED_LIST>
 ```
 
 ## Development Server
