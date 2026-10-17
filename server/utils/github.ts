@@ -21,7 +21,8 @@ export async function fetchRepo(owner: string, name: string) {
   }
   // Fetch repository details to get owner type
   // Can 404 if the repo is deleted, renamed, or not visible to the token
-  const data = await useOctokit().request('GET /repos/{owner}/{name}', {
+  // Cache the promise so parallel calls for the same repo share one request
+  const data = useOctokit().request('GET /repos/{owner}/{name}', {
     owner,
     name,
   }).then(res => res.data).catch(() => null)
