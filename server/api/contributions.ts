@@ -10,7 +10,7 @@ export default defineEventHandler(async () => {
   const hidePrivateRepos = process.env.HIDE_PRIVATE_REPOS === 'true'
   const excludeRepos = process.env.EXCLUDE_REPOS?.split(',').map(repo => repo.trim()).filter(Boolean) ?? []
   const excludeOrgs = process.env.EXCLUDE_ORGS?.split(',').map(org => org.trim()).filter(Boolean) ?? []
-  const prCount = Number(process.env.PR_COUNT ?? 50)
+  const prCount = Number(process.env.PR_COUNT) || 50
 
   // Fetch pull requests from user
   const queryParts = [
@@ -29,13 +29,16 @@ export default defineEventHandler(async () => {
     advanced_search: 'true',
   })
 
-  console.log(data.items.length)
+  // Fetch the repository details of all PRs in parallel
+  const repos = await Promise.all(data.items.map((pr) => {
+    const [owner, name] = pr.repository_url.split('/').slice(-2)
+    return fetchRepo(owner!, name!)
+  }))
 
   const prs: PullRequest[] = []
-  // For each PR, fetch the repository details
-  for (const pr of data.items) {
+  for (const [index, pr] of data.items.entries()) {
     const [owner, name] = pr.repository_url.split('/').slice(-2)
-    const repo = await fetchRepo(owner!, name!)
+    const repo = repos[index]
     // Skip PRs whose repo is inaccessible (deleted, renamed, or hidden from the token)
     if (!repo) continue
 
